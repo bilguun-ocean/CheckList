@@ -4,27 +4,29 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
   <!-- FONT AWESOME ийн icon ууд оруулах -->
   <title>CheckList</title>
   <script src="https://kit.fontawesome.com/99842605aa.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
+  <header class="container">
     <button><i class="fa-solid fa-bars"></i></button>
     <h1>CheckList</h1>
     <a href="#">Sign In</a>
   </header>
-  <main>
+  <main class="container">
     <h2>Dashboard</h2>
     <!-- Тask нэмэх хэсэг -->
+    <section class="task-container container">
+    <section class="task-section">
     <section>
-      <button>Add a task</button>
+      <button class="task-adder-btn">Add a task</button>
     </section>
     <!-- Одоо хийх task уудын хэсэг (upcoming) -->
-    <section>
       <section>
-        <h3>Tasks</h3>
-        <ul>
+        <h3>Tasks · 8</h3>
+        <ul class="task-list list-upc">
           <li>
             <label>
               <input type="checkbox">
@@ -74,11 +76,12 @@
           </label>
           </li>
         </ul>
+        
       </section>
       <!-- Хийж дууссан task уудын хэсэг (completed) -->
       <section>
-        <h3>Completed</h3>
-        <ul>
+        <h3>Completed · 4</h3>
+        <ul class="task-list list-comp">
           <li>
             <label>
               <input type="checkbox" checked>
@@ -112,18 +115,29 @@
         </ul>
       </section>
     </section>
-    <section>
+    <figure class="timer-section">
       <h2>Current Task Name</h2>
       <!-- Энд цаг орно -->
-      <figure>
-        <p>30:00</p>
-        <button><i class="fa-solid fa-play"></i></button>
-        <button><i class="fa-solid fa-pause"></i></button>
-        <button><i class="fa-solid fa-mug-saucer"></i></button>
+        <div id="time">
+          <div class="circle">
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div id="hours">30:00</div>
+          </div>
+        </div>
+        <div class="timer-buttons">
+          <button id="play-pause-button" aria-label="Play">
+            ▶︎
+          </button>
+          <button><i class="fa-solid fa-pause"></i></button>
+          <button><i class="fa-solid fa-mug-saucer"></i></button>
+        </div>
         <p>Finish By 20:30PM</p>
+        <p>“Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.”</p>
       </figure>
-    </section>
-
+  </section>
   </main>
   <footer>
     <p>Developed by KMB</p>
