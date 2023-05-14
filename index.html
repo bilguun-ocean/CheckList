@@ -12,15 +12,21 @@
 <body>
   <header class="container">
     <button><i class="fa-solid fa-bars"></i></button>
-    <h1>CheckList</h1>
+    <div class="logo">
+      <h1>FocusList</h1>
+      <img alt="Icons8 flat todo list" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Icons8_flat_todo_list.svg/512px-Icons8_flat_todo_list.svg.png"></a>
+    </div>
     <a href="#">Sign In</a>
   </header>
   <main class="container">
-    <h2>Dashboard</h2>
+    <div class="dashboard">
+      <h2>Dashboard</h2>
+      <p id="date-time">Sat 13 2023</p>
+    </div>
     <!-- Тask нэмэх хэсэг -->
     <section class="task-container container">
     <section class="task-section">
-    <section>
+    <section class="task-adder">
       <button class="task-adder-btn">Add a task</button>
     </section>
     <!-- Одоо хийх task уудын хэсэг (upcoming) -->
@@ -120,18 +126,19 @@
       <!-- Энд цаг орно -->
         <div id="time">
           <div class="circle">
+            <!-- <div class="dots day_dot"></div> -->
             <svg>
               <circle cx="70" cy="70" r="70"></circle>
-              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70" id="mm"></circle>
             </svg>
-            <div id="hours">30:00</div>
+            <div id="minutes">30:00</div>
           </div>
         </div>
         <div class="timer-buttons">
-          <button id="play-pause-button" aria-label="Play">
+          <button id="play-button" aria-label="Play">
             ▶︎
           </button>
-          <button><i class="fa-solid fa-pause"></i></button>
+          <button id="pause-button"><i class="fa-solid fa-pause"></i></button>
           <button><i class="fa-solid fa-mug-saucer"></i></button>
         </div>
         <p>Finish By 20:30PM</p>
@@ -142,5 +149,6 @@
   <footer>
     <p>Developed by KMB</p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
