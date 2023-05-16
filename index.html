@@ -11,7 +11,7 @@
 </head>
 <body>
   <header class="container">
-    <button><i class="fa-solid fa-bars"></i></button>
+    <button aria-label="hamburger-button"><i class="fa-solid fa-bars"></i></button>
     <div class="logo">
       <h1>FocusList</h1>
       <img alt="Icons8 flat todo list" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Icons8_flat_todo_list.svg/512px-Icons8_flat_todo_list.svg.png"></a>
@@ -27,59 +27,43 @@
     <section class="task-container container">
     <section class="task-section">
     <section class="task-adder">
-      <button class="task-adder-btn">Add a task</button>
+      <button aria-label="add-task" class="task-adder-btn">Add a task</button>
     </section>
     <!-- Одоо хийх task уудын хэсэг (upcoming) -->
       <section>
         <h3>Tasks · 8</h3>
         <ul class="task-list list-upc">
           <li>
-            <label>
-              <input type="checkbox">
-              Task Name
-          </label>
+            <span class="item-name-upc">Do Homework</span>
+            <input class="checkbox" type="checkbox">
         </li>
           <li>
-            <label>
-              <input type="checkbox">
-              Task Name
-          </label>
+            <span class="item-name-upc">Task Name</span>
+            <input class="checkbox" type="checkbox">
           </li>
           <li>
-            <label>
-              <input type="checkbox">
-              Task Name
-          </label>
+            <span class="item-name-upc">Task Name</span>
+            <input class="checkbox" type="checkbox">
           </li>
           <li>
-            <label>
-              <input type="checkbox">
-              Task Name
-          </label>
+            <span class="item-name-upc">Task Name</span>
+            <input class="checkbox" type="checkbox">
           </li>
           <li>
-            <label>
-              <input type="checkbox">
-              Task Name
-          </label>
+            <span class="item-name-upc">Task Name</span>
+            <input class="checkbox" type="checkbox">
           </li>
           <li>
-            <label>
-              <input type="checkbox">
-              Task Name
-          </label>
+            <span class="item-name-upc">Task Name</span>
+            <input class="checkbox" type="checkbox">
           </li>
           <li>
-            <label>
-              <input type="checkbox">
-              Task Name
-          </label>
+            <span class="item-name-upc">Task Name</span>
+            <input class="checkbox" type="checkbox">
           </li>
           <li>
-            <label>
-              <input type="checkbox">
-              Task Name
-          </label>
+            <span class="item-name-upc">Task Name</span>
+            <input class="checkbox" type="checkbox">
           </li>
         </ul>
         
@@ -89,40 +73,30 @@
         <h3>Completed · 4</h3>
         <ul class="task-list list-comp">
           <li>
-            <label>
-              <input type="checkbox" checked>
-              Task Name
-          </label>
+            <span class="item-name-comp">Task Name</span>
+              <input class="checkbox" type="checkbox" checked>
           </li>
           <li>
-            <label>
-              <input type="checkbox" checked>
-              Task Name
-          </label>
+            <span class="item-name-comp">Task Name</span>
+              <input class="checkbox" type="checkbox" checked>
           </li>
           <li>
-            <label>
-              <input type="checkbox" checked>
-              Task Name
-          </label>
+            <span class="item-name-comp">Task Name</span>
+              <input class="checkbox" type="checkbox" checked>
           </li>
           <li>
-            <label>
-              <input type="checkbox" checked>
-              Task Name
-          </label>
+            <span class="item-name-comp">Task Name</span>
+              <input class="checkbox" type="checkbox" checked>
           </li>
           <li>
-            <label>
-              <input type="checkbox" checked>
-              Task Name
-          </label>
+            <span class="item-name-comp">Task Name</span>
+              <input class="checkbox" type="checkbox" checked>
           </li>
         </ul>
       </section>
     </section>
     <figure class="timer-section">
-      <h2>Current Task Name</h2>
+      <h2 id="current-task">Current Task Name</h2>
       <!-- Энд цаг орно -->
         <div id="time">
           <div class="circle">
@@ -131,15 +105,15 @@
               <circle cx="70" cy="70" r="70"></circle>
               <circle cx="70" cy="70" r="70" id="mm"></circle>
             </svg>
-            <div id="minutes">30:00</div>
+            <div id="minutes">25:00</div>
           </div>
         </div>
         <div class="timer-buttons">
           <button id="play-button" aria-label="Play">
             ▶︎
           </button>
-          <button id="pause-button"><i class="fa-solid fa-pause"></i></button>
-          <button><i class="fa-solid fa-mug-saucer"></i></button>
+          <button  aria-label="pause"id="pause-button"><i class="fa-solid fa-pause"></i></button>
+          <button aria-label="break-time"><i class="fa-solid fa-mug-saucer"></i></button>
         </div>
         <p>Finish By 20:30PM</p>
         <p>“Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.”</p>
