@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+
   <!-- FONT AWESOME ийн icon ууд оруулах -->
   <title>CheckList</title>
   <script src="https://kit.fontawesome.com/99842605aa.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="container">
-    <button aria-label="hamburger-button"><i class="fa-solid fa-bars"></i></button>
     <div class="logo">
       <h1>FocusList</h1>
       <img alt="Icons8 flat todo list" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Icons8_flat_todo_list.svg/512px-Icons8_flat_todo_list.svg.png"></a>
@@ -19,16 +19,30 @@
     <a href="#">Sign In</a>
   </header>
   <main class="container">
-    <div class="dashboard">
-      <h2>Dashboard</h2>
-      <p id="date-time">Sat 13 2023</p>
-    </div>
+    <p class="quote">“if a task is once begun, never leave it until it’s done”</p>
     <!-- Тask нэмэх хэсэг -->
     <section class="task-container container">
+      <figure class="timer-section">
+        <h2 id="current-task">Current Task Name</h2>
+        <!-- Энд цаг орно -->
+          <div id="time">
+            <div class="circle">
+              <!-- <div class="dots day_dot"></div> -->
+              <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="mm"></circle>
+              </svg>
+              <div id="minutes">25:00</div>
+            </div>
+          </div>
+          <div class="timer-buttons">
+            <button id="play-button" aria-label="Play"><i class="fa-solid fa-play"></i></button>
+            <button  aria-label="pause"id="pause-button"><i class="fa-solid fa-pause"></i></button>
+            <button aria-label="break-time"><i class="fa-solid fa-mug-saucer"></i></button>
+          </div>
+        </figure>
+
     <section class="task-section">
-    <section class="task-adder">
-      <button aria-label="add-task" class="task-adder-btn">Add a task</button>
-    </section>
     <!-- Одоо хийх task уудын хэсэг (upcoming) -->
       <section>
         <h3>Tasks · 8</h3>
@@ -68,6 +82,7 @@
         </ul>
         
       </section>
+      
       <!-- Хийж дууссан task уудын хэсэг (completed) -->
       <section>
         <h3>Completed · 4</h3>
@@ -94,30 +109,10 @@
           </li>
         </ul>
       </section>
+      <section class="task-adder">
+        <button aria-label="add-task" class="task-adder-btn">Add a task</button>
+      </section>
     </section>
-    <figure class="timer-section">
-      <h2 id="current-task">Current Task Name</h2>
-      <!-- Энд цаг орно -->
-        <div id="time">
-          <div class="circle">
-            <!-- <div class="dots day_dot"></div> -->
-            <svg>
-              <circle cx="70" cy="70" r="70"></circle>
-              <circle cx="70" cy="70" r="70" id="mm"></circle>
-            </svg>
-            <div id="minutes">25:00</div>
-          </div>
-        </div>
-        <div class="timer-buttons">
-          <button id="play-button" aria-label="Play">
-            ▶︎
-          </button>
-          <button  aria-label="pause"id="pause-button"><i class="fa-solid fa-pause"></i></button>
-          <button aria-label="break-time"><i class="fa-solid fa-mug-saucer"></i></button>
-        </div>
-        <p>Finish By 20:30PM</p>
-        <p>“Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.”</p>
-      </figure>
   </section>
   </main>
   <footer>
