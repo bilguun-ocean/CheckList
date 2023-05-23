@@ -8,6 +8,7 @@ const mm = document.getElementById("mm");
 const timerDot = document.querySelector(".day_dot");
 const playButton = document.querySelector('#play-button');
 const pauseButton = document.querySelector('#pause-button');
+const replayButton = document.querySelector('#replay-button');
 const timerDisplay = document.querySelector('#timer-display');
 
 let isTimerRunning = false;
@@ -115,6 +116,7 @@ const startTimer = () => {
   };
 
   const refreshTimer = () => {
+    pauseTimer();
     isTimerRunning = false;
     remainingTime = null;
     timerInterval = null;
@@ -124,6 +126,7 @@ const startTimer = () => {
 
   playButton.addEventListener("click", startTimer);
   pauseButton.addEventListener("click", pauseTimer);
+  replayButton.addEventListener("click", refreshTimer);
 
   return {
     pauseTimer: pauseTimer,
@@ -148,8 +151,10 @@ tasks.forEach(task => {
     timerObj.refreshTimer();
   })
 }) 
+
   // Checkbox listener
   // task deer
+
 const taskCheckbox = document.querySelectorAll(".checkbox");
 const taskCompletedSection = document.querySelector(".list-comp");
 const taskUpcomingSection = document.querySelector(".list-upc");
@@ -157,6 +162,7 @@ const taskUpcomingSection = document.querySelector(".list-upc");
 
 taskCheckbox.forEach(task => {
   task.addEventListener("change", ()=> { 
+
     // upcoming task deer
     if(task.parentNode.parentNode.classList.contains("list-upc"))
     {
@@ -169,6 +175,7 @@ taskCheckbox.forEach(task => {
       // now delete the item itself from the html
       task.parentNode.remove();
       // completed task deer
+      
     } else {
       console.log("D")
       const item = document.createElement("li");
@@ -183,3 +190,92 @@ taskCheckbox.forEach(task => {
 })
 
   // completed task deer
+
+
+
+
+  // Task handler
+
+  const taskListItems = document.querySelectorAll('.list-upc li');
+
+  // Add click event listener to the "active-task" element
+  document.getElementById("active-task").addEventListener("click", function() {
+    if (localStorage.getItem("isActiveTaskClicked") === 'true' || localStorage.getItem("isActiveTaskClicked") === null) {
+      // Hide all task items except the first one if the "active-task" has been clicked before
+      for (let i = 1; i < taskListItems.length; i++) {
+        taskListItems[i].style.display = 'none';
+      }
+      localStorage.setItem("isActiveTaskClicked", 'false');
+    } else {
+      // Show all task items if the "active-task" has not been clicked before
+      for (let i = 0; i < taskListItems.length; i++) {
+        taskListItems[i].style.display = 'block';
+      }
+      localStorage.setItem("isActiveTaskClicked", 'true');
+    }
+  });  
+
+
+  const taskListComp = document.querySelector('.list-comp');
+
+  // Add click event listener to the "active-task" element
+  document.getElementById("complete-task").addEventListener("click", function() {
+    if (localStorage.getItem("isCompleteTaskClicked") == 'true' ||localStorage.getItem("isCompleteTaskClicked") == null) {
+      // Hide the tasks if the "active-task" has been clicked before
+      taskListComp.classList.add('hidden');
+      localStorage.setItem("isCompleteTaskClicked", false);
+    } else {
+      // List the tasks if the "active-task" has not been clicked before
+      taskListComp.classList.remove('hidden');
+      localStorage.setItem("isCompleteTaskClicked", true);
+      console.log("IM CLICKED")
+    }
+  });
+
+
+// Item iig drag hiih
+
+const items = document.querySelectorAll(".item");
+
+const taskList = document.querySelector('.task-list');
+
+let draggedItem = null;
+
+taskList.addEventListener('dragstart', (e) => { 
+  draggedItem = e.target;
+  e.target.classList.add('dragging');
+});
+
+taskList.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  const afterElement = getDragAfterElement(taskList, e.clientY);
+  const draggableItem = document.querySelector('.dragging');
+  if (afterElement == null) {
+    taskList.appendChild(draggableItem);
+  } else {
+    taskList.insertBefore(draggableItem, afterElement);
+  }
+});
+
+taskList.addEventListener('dragend', () => {
+  draggedItem.classList.remove('dragging');
+  draggedItem = null;
+});
+
+function getDragAfterElement(container, y) {
+  const draggableItems = [...container.querySelectorAll('.item:not(.dragging)')];
+  return draggableItems.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset, element: child };
+      } else {
+        return closest;
+      }
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
+}
+
+
