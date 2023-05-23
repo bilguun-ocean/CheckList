@@ -61,8 +61,49 @@ header a:visited {
 
 .quote {
   text-align: center;
+  max-width: 80%;
+  margin: 0 auto;
   padding: 15px 0px;
+  display: flex;
+  align-items: center;
 }
+
+#quote-btn {
+  background: none;
+  border: none;
+  color: darkkhaki;
+  font-size: large;
+}
+
+#quote-btn:hover {
+  opacity: 0.8;
+  scale: 1.2;
+  cursor: pointer;
+  animation-name: restart;
+  animation-duration: 0.4s;
+}
+
+#quote-container {
+  display: flex;
+}
+blockquote {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+blockquote footer{
+  padding: 0;
+  margin: 0;
+}
+@keyframes restart {
+  0% {transform: rotate(140deg);}
+  25% {transform: rotate(280deg);}
+  50% {transform: rotate(360deg);}
+  75% {transform: rotate(140deg);}
+  100% {transform: rotate(0deg);}
+}
+
 
 main > .dashboard {
   margin-top: 25px;
@@ -143,6 +184,11 @@ main > .dashboard {
   cursor: pointer;
 }
 
+.timer-buttons button:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .item.dragging{
   opacity: 0.5;
 }
@@ -174,6 +220,12 @@ main > .dashboard {
 
 .task-list.list-comp {
   height: 50%;
+}
+
+.quote {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-small);
 }
 
 .task-list {

@@ -213,8 +213,7 @@ taskCheckbox.forEach(task => {
       }
       localStorage.setItem("isActiveTaskClicked", 'true');
     }
-  });  
-
+  });
 
   const taskListComp = document.querySelector('.list-comp');
 
@@ -231,7 +230,6 @@ taskCheckbox.forEach(task => {
       console.log("IM CLICKED")
     }
   });
-
 
 // Item iig drag hiih
 
@@ -279,3 +277,39 @@ function getDragAfterElement(container, y) {
 }
 
 
+
+
+// QUOTE heseg
+
+function fetchMotivationalQuotes() {
+  return fetch('https://type.fit/api/quotes')
+    .then(response => response.json())
+    .then(data => data);
+}
+
+function displayRandomQuote(quotes) {
+  const quoteContainer = document.querySelector('#quote-container');
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const randomQuote = quotes[randomIndex];
+  const quoteText = document.querySelector("#quote-text")
+  const quoteFooter = document.querySelector("#quote-footer");
+  quoteText.innerText = randomQuote.text;
+  quoteFooter.innerText = randomQuote.author;
+  // quoteContainer.innerHTML = `
+  //   <blockquote>
+  //     <p>${randomQuote.text} </p>
+  //     <footer>${randomQuote.author}<button id="quote-btn"><i class="fa-solid fa-rotate-right"></i></button> </p></footer>
+  //   </blockquote>
+  // `;
+}
+fetchMotivationalQuotes()
+  .then(quotes => displayRandomQuote(quotes))
+  .catch(error => console.error(error));
+
+const quoteBtn = document.querySelector('#quote-btn');
+
+quoteBtn.addEventListener("click", () => {
+  fetchMotivationalQuotes()
+    .then(quotes => displayRandomQuote(quotes))
+    .catch(error => console.error(error));
+});
