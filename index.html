@@ -15,10 +15,9 @@
     <div class="logo">
       <h1>FocusList</h1>
       <img alt="Icons8 flat todo list" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Icons8_flat_todo_list.svg/512px-Icons8_flat_todo_list.svg.png"></a>
-    </div>
-    <a href="#">Sign In</a>
+      <a href="#">Sign in</a>
   </header>
-  <main class="container">
+  <main class="content container">
     <section class="quote">
       <blockquote id="quote-container">
         <p id="quote-text"></p>
@@ -46,7 +45,7 @@
               <button aria-label="replay" id="replay-button"><i class="fa-solid fa-repeat"></i></button>
               <button class="play-pause-btn hidden-btn"  aria-label="pause"id="pause-button"><i class="fa-solid fa-pause"></i></button>
               <button id="play-button" class="play-pause-btn" aria-label="Play"><i class="fa-solid fa-play"></i></button>
-              <button aria-label="break-time"><i class="fa-solid fa-mug-saucer"></i></button>
+              <button aria-label="break-time" id="break-button"><i class="fa-solid fa-mug-saucer"></i></button>
             </div>
           </figure>
           <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/10M75TUt3X1qbBhpuEw6el?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -55,6 +54,8 @@
     <section class="task-section">
     <!-- Одоо хийх task уудын хэсэг (upcoming) -->
       <section>
+        <button class="btn selected">Tasks</button>
+        <button id="overview-button" class="btn" disabled>Overview</button>
         <h3 id="active-task">Active Tasks · 8</h3>
         <ul class="task-list list-upc">
           <li class="item" draggable="true">
@@ -106,29 +107,35 @@
         <h3 id="complete-task">Completed · 4</h3>
         <ul class="task-list list-comp">
           <li class="item">
+            <input class="checkbox" type="checkbox" checked>
             <span class="item-name-comp">Task Name</span>
-              <input class="checkbox" type="checkbox" checked>
           </li>
           <li class="item">
+            <input class="checkbox" type="checkbox" checked>
             <span class="item-name-comp">Task Name</span>
-              <input class="checkbox" type="checkbox" checked>
           </li>
           <li class="item">
+            <input class="checkbox" type="checkbox" checked>
             <span class="item-name-comp">Task Name</span>
-              <input class="checkbox" type="checkbox" checked>
           </li>
           <li class="item">
+            <input class="checkbox" type="checkbox" checked>
             <span class="item-name-comp">Task Name</span>
-              <input class="checkbox" type="checkbox" checked>
           </li>
           <li class="item">
+            <input class="checkbox" type="checkbox" checked>
             <span class="item-name-comp">Task Name</span>
-              <input class="checkbox" type="checkbox" checked>
           </li>
         </ul>
       </section>
       <section class="task-adder">
         <button aria-label="add-task" class="task-adder-btn">Add a task</button>
+        <div id="task-input-container" class="hidden">
+          <input type="text" id="task-input" placeholder="Enter task details">
+          <input type="text" id="task-desc" placeholder="Enter Note">
+          <button id="save-task-btn">Save</button>
+          <button id="cancel-task-btn">Cancel</button>
+        </div>
       </section>
     </section>
   </section>
@@ -136,6 +143,6 @@
   <footer>
     <p>Developed by KMB</p>
   </footer>
-  <script src="script.js"></script>
+  <script type="module"  src="src/App.js"></script>
 </body>
 </html>

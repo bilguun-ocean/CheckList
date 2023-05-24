@@ -59,6 +59,22 @@ header a:visited {
   color: var(--font-color);
 }
 
+nav ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  gap: 40px;
+}
+
+nav button {
+  background: none;
+  border: 1px solid var(--font-color);
+  font-size: medium;
+  color: var(--font-color);
+  border-radius: 10px;
+  padding: 5px;
+}
+
 .quote {
   text-align: center;
   max-width: 90%;
@@ -76,6 +92,46 @@ header a:visited {
   border: none;
   color: darkkhaki;
   font-size: large;
+}
+.btn:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.btn {
+  background: none;
+  border:none;
+  font-size: medium;
+  color: var(--font-color);
+  border: 2px solid var(--font-color);
+  padding: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+/* DISABLE BUTTON */ 
+#overview-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  position: relative;
+}
+
+#overview-button[disabled]:hover::after {
+  content: "Log in to enable";
+  position: absolute;
+  top: 0px;
+  left: 170px;
+  transform: translateX(-50%);
+  padding: 8px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+
+.btn.selected {
+  background-color: var(--background-color-1);
 }
 
 #quote-btn:hover {
@@ -136,11 +192,24 @@ blockquote footer{
   cursor: pointer;
 }
 
+#task-input-container {
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--font-color);
+}
+
 
 .task-section {
   width: 60%;
   height: 500px;
   overflow: scroll;
+}
+
+.task-section h3:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .timer-music {
@@ -231,13 +300,10 @@ blockquote footer{
   gap: 10px;
   display: flex;
   height: 100%;
-  opacity: 1;
-  transition: opacity 0.3s ease;
 }
 
-.task-list.hidden {
+.hidden {
   display: none;
-  opacity: 0;
 }
 
 
