@@ -58,42 +58,42 @@
         <button id="overview-button" class="btn" disabled>Overview</button>
         <h3 id="active-task">Active Tasks · 8</h3>
         <ul class="task-list list-upc">
-          <li class="item" draggable="true">
+          <li class="item act" draggable="true">
             <input class="checkbox" type="checkbox">
             <span class="item-name-upc">Task Do</span>
             <i class="grip fa-solid fa-grip-vertical"></i>
         </li>
-          <li class="item" draggable="true">
+          <li class="item act" draggable="true">
             <input class="checkbox" type="checkbox">
             <span class="item-name-upc">Do Task</span>
             <i class="grip fa-solid fa-grip-vertical"></i>
           </li>
-          <li class="item" draggable="true">
+          <li class="item act" draggable="true">
             <input class="checkbox" type="checkbox">
             <span class="item-name-upc">Do Task</span>
             <i class="grip fa-solid fa-grip-vertical"></i>
           </li>
-          <li class="item" draggable="true">
+          <li class="item act" draggable="true">
             <input class="checkbox" type="checkbox">
             <span class="item-name-upc">Do Task</span>
             <i class="grip fa-solid fa-grip-vertical"></i>
           </li>
-          <li class="item" draggable="true">
+          <li class="item act" draggable="true">
             <input class="checkbox" type="checkbox">
             <span class="item-name-upc">Do Task</span>
             <i class="grip fa-solid fa-grip-vertical"></i>
           </li>
-          <li class="item" draggable="true">
+          <li class="item act" draggable="true">
             <input class="checkbox" type="checkbox">
             <span class="item-name-upc">Do Task</span>
             <i class="grip fa-solid fa-grip-vertical"></i>
           </li>
-          <li class="item" draggable="true">
+          <li class="item act" draggable="true">
             <input class="checkbox" type="checkbox">
             <span class="item-name-upc">Do Task</span>
             <i class="grip fa-solid fa-grip-vertical"></i>
           </li>
-          <li class="item" draggable="true">
+          <li class="item act" draggable="true">
             <input class="checkbox" type="checkbox">
             <span class="item-name-upc">Do Task</span>
             <i class="grip fa-solid fa-grip-vertical"></i>
@@ -129,12 +129,14 @@
         </ul>
       </section>
       <section class="task-adder">
-        <button aria-label="add-task" class="task-adder-btn">Add a task</button>
+        <button aria-label="add-task" class="task-adder-btn hidden">Add a task</button>
         <div id="task-input-container" class="hidden">
-          <input type="text" id="task-input" placeholder="Enter task details">
-          <input type="text" id="task-desc" placeholder="Enter Note">
-          <button id="save-task-btn">Save</button>
-          <button id="cancel-task-btn">Cancel</button>
+          <div class="user-input">
+            <input type="text" id="task-input" placeholder="Task Name">
+            <input type="text" id="task-desc" placeholder="Enter Note">
+          </div>
+          <button id="save-task-btn">Save Task</i></button>
+          <button id="cancel-task-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
       </section>
     </section>

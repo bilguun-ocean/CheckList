@@ -5,6 +5,7 @@
   --background-color-1: #53E8C4;
   --background-color-2: #F2F2F2;
   --background-color-3: #a9fce8;
+  --background-color-4: #53e88a;
   --container-width: 800px;
   --font-color: #4861AD;
   --gap-small: 10px;
@@ -20,16 +21,29 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
+button {
+  background: none;
+  border: none;
+}
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .container {
   width: var(--container-width);
   max-width: 100vw;
   margin: 0 auto;
 }
+
 .logo {
   display: flex;
   align-items: center;
-  flex-direction: row-reverse;
-  gap: 10px;
+  gap: 10px;  
+}
+
+.logo a {
+  justify-self: flex-end;
 }
 
 .logo img {
@@ -92,10 +106,6 @@ nav button {
   border: none;
   color: darkkhaki;
   font-size: large;
-}
-.btn:hover{
-  opacity: 0.8;
-  cursor: pointer;
 }
 
 .btn {
@@ -185,19 +195,59 @@ blockquote footer{
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 80%;
+  margin: 0 auto;
 }
-
-.task-adder-btn:hover{
-  opacity: 80%;
-  cursor: pointer;
-}
-
 #task-input-container {
+  position: relative;
   width: 100%;
   padding: 20px;
   margin-top: 20px;
   border-radius: 10px;
-  border: 1px solid var(--font-color);
+  border: 3px solid var(--font-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-input {
+  display: flex;
+  flex-direction: column;
+}
+
+#task-input, #task-desc {
+  padding: 4px 10px;
+  border: none;
+}
+
+#save-task-btn {
+  background: var(--background-color-3);
+  padding: 5px;
+  border-radius: 10px;
+  color: var(--font-color);
+}
+
+#cancel-task-btn {
+  position: absolute;
+  left: 93%;
+  color: gray;
+  top: 5%;
+}
+
+#cancel-task-btn:hover {
+  color: red;
+}
+
+#task-input {
+  font-size: large;
+}
+
+#task-desc {
+  border-bottom: 1px solid var(--font-color);
+}
+
+.user-input button {
 }
 
 
@@ -263,11 +313,18 @@ blockquote footer{
   position: relative;
   display: flex;
   align-items: center;
+  
 }
 
 .item .grip {
   position: absolute; 
   right: 15px;
+}
+
+.item.selected {
+
+  background-color: var(--background-color-4);
+  transition: background-color 500ms linear;
 }
 
 
@@ -316,7 +373,7 @@ blockquote footer{
   gap: 20px;
 }
 
-.timer-buttons button {
+.timer-buttons button{
   width: 40px;
   height: 40px;
   background: none;
@@ -325,6 +382,12 @@ blockquote footer{
   font-size: large;
   border: 1px solid var(--font-color);
 }
+
+#task-input-container button{
+  font-size: large;
+}
+
+
 
 button.play-pause-btn {
   background-color: var(--font-color);

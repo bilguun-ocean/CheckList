@@ -35,3 +35,5 @@ export class Quote {
     this.quoteFooter.innerText = randomQuote.author;
   }
 }
+
+const quoteObj = new Quote();

@@ -1,7 +1,10 @@
+import {timerObj} from './Timer.js';
+
 export class Task {
   constructor() {
+    this.timerObj = timerObj;
     this.taskHeader = document.querySelector("#current-task");
-    this.tasks = document.querySelectorAll(".item-name-upc");
+    this.activeTasks = document.querySelectorAll(".item.act");
     this.taskCheckbox = document.querySelectorAll(".checkbox");
     this.taskCompletedSection = document.querySelector(".list-comp");
     this.taskUpcomingSection = document.querySelector(".list-upc");
@@ -56,10 +59,17 @@ export class Task {
   }
 
   initializeTaskListeners() {
-    this.tasks.forEach((task) => {
+    this.activeTasks.forEach((task) => {
       task.addEventListener("click", () => {
+        // uur task nuudiin style iig awah
+        this.activeTasks.forEach((item) => {
+          item.classList.remove("selected");
+        });
+  
+        // Add the "selected" class to the clicked task
+        task.classList.add("selected");
         console.log("Task Clicked");
-        this.taskHeader.textContent = task.textContent;
+        this.taskHeader.textContent = task.textContent.trim();
         this.timerObj.pauseTimer();
         this.timerObj.refreshTimer();
       });
@@ -118,11 +128,35 @@ export class Task {
   }
 
   initializeDragAndDrop() {
+    // Touch event handling for mobile devices
+    this.taskList.addEventListener('touchstart', (e) => {
+      this.draggedItem = e.target;
+      e.target.classList.add('dragging');
+    });
+  
+    this.taskList.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const afterElement = this.getDragAfterElement(this.taskList, touch.clientY);
+      const draggableItem = document.querySelector('.dragging');
+      if (afterElement == null) {
+        this.taskList.appendChild(draggableItem);
+      } else {
+        this.taskList.insertBefore(draggableItem, afterElement);
+      }
+    });
+  
+    this.taskList.addEventListener('touchend', () => {
+      this.draggedItem.classList.remove('dragging');
+      this.draggedItem = null;
+    });
+  
+    // Mouse event handling
     this.taskList.addEventListener('dragstart', (e) => {
       this.draggedItem = e.target;
       e.target.classList.add('dragging');
     });
-
+  
     this.taskList.addEventListener('dragover', (e) => {
       e.preventDefault();
       const afterElement = this.getDragAfterElement(this.taskList, e.clientY);
@@ -133,12 +167,13 @@ export class Task {
         this.taskList.insertBefore(draggableItem, afterElement);
       }
     });
-
+  
     this.taskList.addEventListener('dragend', () => {
       this.draggedItem.classList.remove('dragging');
       this.draggedItem = null;
     });
   }
+  
 
   getDragAfterElement(container, y) {
     const draggableItems = [...container.querySelectorAll('.item:not(.dragging)')];
@@ -155,3 +190,5 @@ export class Task {
 }
 
 // Usage
+
+const taskObj = new Task();

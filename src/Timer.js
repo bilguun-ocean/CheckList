@@ -1,4 +1,4 @@
-export class Timer {
+class Timer {
   constructor() {
     this.timer = document.getElementById("minutes");
     this.mm = document.getElementById("mm");
@@ -169,3 +169,5 @@ export class Timer {
     this.mm.style.strokeDashoffset = mmOffset;
   }
 }
+
+export const timerObj = new Timer();
